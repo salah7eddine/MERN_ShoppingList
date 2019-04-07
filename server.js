@@ -35,6 +35,9 @@ mongoose.connect(db, {
     next();
   });
 
+  // Use Routes
+  app.use('/api/items', items);
+
   // Serve static assets if in production
   if(process.env.NODE_ENV === 'production') {
     // Set static folder
@@ -46,8 +49,6 @@ mongoose.connect(db, {
   }
 
   
-  // Use Routes
-  app.use('/api/items', items);
 
 app.listen(port, () => console.log(`Server started on port ${port}.`));
 
